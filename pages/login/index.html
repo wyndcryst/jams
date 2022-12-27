@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="../../images/navbar.png" />
+    <title>JAMS Login</title>
+</head>
+
+<body>
+    <!-- Navigation bar starts here -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+                <img src="../../images/navbar.png" alt="Logo" width="25" height="30" class="d-inline-block align-text-top">
+                JAMS
+            </a>
+        </div>
+    </nav>
+    <!-- Navigation bar ends here -->
+
+    <!-- Login form card start -->
+    <div class="container">
+        <div class="card shadow-lg border-0" style="width: 400px; margin: 200px auto">
+            <div class="card-body">
+                <h2 class="card-title text-center">Welcome back</h2>
+                <form onsubmit="return login()">
+                    <div class="form-floating my-3">
+                        <input type="text" class="form-control form-control-lg shadow-sm border-0" id="username" placeholder="Username / ID Number" />
+                        <label for="username">ID Number</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="password" class="form-control form-control-lg shadow-sm border-0" id="password" placeholder="Password" />
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-dark mt-3">Login</button>
+                    </div>
+
+
+                    <br />
+                    <!-- <a class="text-decoration-none font-monospace fw-semibold" href="../forgetPassword/">Forget Password?</a> -->
+                    <p>
+                        Don't have an account? <a class="text-decoration-none font-monospace fw-semibold" href="../signup/"> Register here.</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Login form card ends -->
+
+    <!-- jQuery CDN -->
+    <script src="../../js/jquery-3.6.3.min.js"></script>
+
+    <!-- Start of Bootstrap scripts -->
+    <script src="../../js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <!-- End of Bootstrap scripts -->
+
+    <script src="script.js"></script>
+    <script src="../../js/logout.js"></script>
+</body>
+
+</html>
