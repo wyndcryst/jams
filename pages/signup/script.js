@@ -8,6 +8,7 @@ function store()
 		firstname : $("#firstname").val(),
         lastname : $("#lastname").val(),
         username : $("#username").val(),
+        position : $("#position").val(),
         password: $("#password").val(),
         confirm_password : $("#confirm_password").val(),
         // profile_pic : $("profile_pic").val(),

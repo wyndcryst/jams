@@ -89,6 +89,7 @@ if (isset($_POST['store']))
             `firstname`, 
             `lastname`, 
             `username`, 
+            `position`, 
             `password`
         ) 
     VALUES 
@@ -96,6 +97,7 @@ if (isset($_POST['store']))
             '{$data->firstname}',
             '{$data->lastname}',
             '{$data->username}',
+            '{$data->position}',
             '{$password}'
         )
     ";
@@ -160,6 +162,7 @@ if (isset($_POST['destroy']))
     $sqlCommand = "
     UPDATE " .TABLE_NAME. "
     SET `username`='{$data->username}',
+    position = '{$data->position}',
     password = '{$data->password}',
     WHERE id = $id
     ";

@@ -27,7 +27,7 @@ if (isset($_POST['store']))
         return;
     }
 
-    // $password = password_hash($data->password, PASSWORD_DEFAULT);
+    $password = password_hash($data->password, PASSWORD_DEFAULT);
 
     //@TODO conditions before saving
     //@TODO change columns and values
@@ -37,6 +37,7 @@ if (isset($_POST['store']))
             `firstname`, 
             `lastname`, 
             `username`, 
+            `position`, 
             `password`
         ) 
     VALUES 
@@ -44,7 +45,8 @@ if (isset($_POST['store']))
             '{$data->firstname}',
             '{$data->lastname}',
             '{$data->username}',
-            '{$data->password}'
+            '{$data->position}',
+            '{$password}'
         )
     ";
 

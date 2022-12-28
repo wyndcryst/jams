@@ -32,6 +32,7 @@ function index()
                     "<td>" + jsonParse.records[i].firstname + "</td>" + 
                     "<td>" + jsonParse.records[i].lastname + "</td>" + 
                     "<td>" + jsonParse.records[i].username + "</td>" + 
+                    "<td>" + jsonParse.records[i].position + "</td>" + 
                     "<td>" + jsonParse.records[i].password + "</td>" + 
                     // "<td>" + jsonParse.records[i].profile_pic + "</td>" + 
                     "<td>" + jsonParse.records[i].timestamp + "</td>" + 
@@ -47,11 +48,6 @@ function index()
             $("#records").html(tr)
         }
     })
-}
-
-function goToView(id)
-{
-    window.location.href = 'view.html?id=' + id;
 }
 
 /**
@@ -72,15 +68,20 @@ function show(id)
             $("#firstname").val(jsonParse.records.firstname);
             $("#lastname").val(jsonParse.records.lastname);
             $("#username").val(jsonParse.records.username);
+            $("#position").val(jsonParse.records.position);
             $("#password").val(jsonParse.records.password);
         }
     })
 }
 
+function goToView(id)
+{
+    window.location.href = 'view.html?id=' + id;
+}
+
 //Saving a record
 function store()
 {
-
     /**
      * Change json collections
      */
@@ -88,7 +89,8 @@ function store()
     let userForm = {
 		firstname : $("#firstname").val(),
         lastname : $("#lastname").val(),
-        username : $("#username").val(),
+        username: $("#username").val(),
+        position : $("#position").val(),
         password: $("#password").val(),
         confirm_password : $("#confirm_password").val(),
         // profile_pic : $("profile_pic").val(),
@@ -142,7 +144,8 @@ function update(id)
 {
     //@TODO Change json collections
     let userFormUpdate = {
-        username : $("#username").val(),
+        username: $("#username").val(),
+        position : $("#position").val(),
         password : $("#password").val(),
         confirm_password : $("#confirm_password").val(),
 	}
