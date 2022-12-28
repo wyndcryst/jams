@@ -3,16 +3,6 @@
 const USERS_API = "../../api/users.php";
 // const IMAGE_UPLOADER_API = "../../api/uploader.php";
 
-/** Actual Functions */
-
-/**
- * index = get all information
- * show?id = get 1 information only
- * store = saving new data or resource
- * destroy?id = delete a resource
- * update?id new resource = to update new resource
- */
-
 //Get all information
 index();
 function index()
@@ -41,10 +31,7 @@ function index()
                     "<button onclick='destroy(" +jsonParse.records[i].id+ ")'>DELETE</button></td>" + 
                 "</tr>";
             }
-
-            /**
-             * Change element to be display
-             */
+            
             $("#records").html(tr)
         }
     })
@@ -54,12 +41,13 @@ function index()
  * 
  * @param {*} id 
  */
+//! Redirected to view.html as an UPDATE page
 function show(id)
 {
     //@var change variable ITEMS_API
     $.ajax({
-        "url" : USERS_API + "?show&id=" + id,
-        "success" : function(response) {
+        url: USERS_API + "?show&id=" + id,
+        success: function (response) {
             
             let jsonParse = JSON.parse(response)
 
@@ -70,10 +58,11 @@ function show(id)
             $("#username").val(jsonParse.records.username);
             $("#position").val(jsonParse.records.position);
             $("#password").val(jsonParse.records.password);
-        }
-    })
+        },
+    });
 }
 
+//! This is onclick function for index action button
 function goToView(id)
 {
     window.location.href = 'view.html?id=' + id;
@@ -82,10 +71,7 @@ function goToView(id)
 //Saving a record
 function store()
 {
-    /**
-     * Change json collections
-     */
-    //@TODO change json collection
+
     let userForm = {
 		firstname : $("#firstname").val(),
         lastname : $("#lastname").val(),
