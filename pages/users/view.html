@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link rel="icon" type="image/x-icon" href="../../images/navbar.png" />
+    <title>JAMS | Update customer details</title>
+</head>
+
+<body>
+    <!-- Navigation bar start -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../dashboard/">
+                <img src="../../images/navbar.png" alt="Logo" width="25" height="30"
+                    class="d-inline-block align-text-top">
+                JAMS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="view.html">User Details</a>
+                    </li>
+                </ul>
+                <button class="btn btn-sm btn-outline-light" type="button" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+    <!-- Navigation bar end -->
+
+    <center>
+      <div class="card" style="margin-top: 2%">
+        <div class="card-body">
+          <h5 class="card-title">Specific Item</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+
+            <form onsubmit="return viewUpdate()">
+              First Name: <input type="text" id="name" required readonly/> <br />
+              Last Name : <input type="text" id="description" readonly /> <br />
+              Username : <input type="text" id="uom" required /> <br />
+              Password : <input type="password" id="price" required /> <br />
+              <input type="submit" value="UPDATE ITEM" />
+            </form>
+          </h6>
+        </div>
+      </div>
+    </center>
+  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    
+  <!-- Bootstrap scripts -->
+  <script src="../../js/bootstrap.bundle.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+    <!-- End of Bootstrap scripts -->
+  
+    <script src="script.js"></script>
+  <script src="../../js/logout.js"></script>
+  
+  <script>
+    //@TODO
+    //This line of code will be used when viewing a specific data or resource
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    let id = urlParams.get('id');
+    show(id);
+
+    function viewUpdate()
+    {
+        update(id);
+        return false;
+    }
+  </script>
+</html>
