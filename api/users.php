@@ -1,8 +1,5 @@
 <?php
 
-/**
- * This is to load environment
- */
 include_once ("config.php");
 include_once ("constants.php");
 
@@ -12,7 +9,7 @@ define("TABLE_NAME", "users");
 /**
  * This code is for selecting all informations 
  */
-if (isset($_GET['index']))
+if (isset($_POST['index']))
 {
     //@TODO conditions to display all
     $sqlCommand = "SELECT * FROM " . TABLE_NAME;
@@ -37,9 +34,9 @@ if (isset($_GET['index']))
 /**
  * This code is for selecting one information only
  */
-if (isset($_GET['show']))
+if (isset($_POST['show']))
 {
-   $id = $_GET['id'];
+   $id = $_POST['id'];
    
    //@TODO conditions to display a specific
    $sqlCommand = "SELECT * FROM " . TABLE_NAME . " WHERE id = $id";
@@ -81,8 +78,7 @@ if (isset($_POST['store']))
 
     $password = password_hash($data->password, PASSWORD_DEFAULT);
 
-    //@TODO conditions before saving
-    //@TODO change columns and values
+    //TODO : Add profile_pic after password
     $sqlCommand = "
     INSERT INTO " .TABLE_NAME. "
         (
@@ -147,23 +143,31 @@ if (isset($_POST['destroy']))
 
 }
 
-
 /**
  * For Update
  */
-
  if (isset($_POST['update']))
  {
     $id = $_POST['id'];
     $data = json_decode($_POST['update']);
 
+    if ($data->password !== $data->confirm_password)
+    {
+        $response["code"] = INPUT_ERROR;
+        $response["description"] = "Password doesn't match";
+
+        echo json_encode($response);
+        return;
+    }
+
+    $password = password_hash($data->password, PASSWORD_DEFAULT);
+
     //@TODO Add condition before updating
     //@TODO Change all columns and values before updatnig
     $sqlCommand = "
     UPDATE " .TABLE_NAME. "
-    SET `username`='{$data->username}',
-    position = '{$data->position}',
-    password = '{$data->password}',
+    SET position = '{$data->position}',
+    password = '{$password}'
     WHERE id = $id
     ";
 

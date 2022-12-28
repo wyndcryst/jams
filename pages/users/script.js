@@ -1,5 +1,4 @@
 
-//@TODO Change api variable api path
 const USERS_API = "../../api/users.php";
 // const IMAGE_UPLOADER_API = "../../api/uploader.php";
 
@@ -8,16 +7,16 @@ index();
 function index()
 {
     $.ajax({
-        "url" : USERS_API + "?index",
-        "success" : function(response) {
+        url: USERS_API,
+        type: "POST",
+        data: "index",
+        success: function(response) {
             
             let jsonParse = JSON.parse(response)
             let tr = '';
 
             for (var i = 0; i<jsonParse.records.length; i++) 
             {
-                //@TODO Change display iterations
-                //jsonParse.records[i].id
                 tr += "<tr>" +
                     "<td>" + jsonParse.records[i].firstname + "</td>" + 
                     "<td>" + jsonParse.records[i].lastname + "</td>" + 
@@ -37,27 +36,24 @@ function index()
     })
 }
 
-/**
- * 
- * @param {*} id 
- */
+
 //! Redirected to view.html as an UPDATE page
 function show(id)
 {
-    //@var change variable ITEMS_API
     $.ajax({
-        url: USERS_API + "?show&id=" + id,
+        url: USERS_API,
+        type: "POST",
+        data: "show&id=" + id,
         success: function (response) {
             
             let jsonParse = JSON.parse(response)
 
-            //@TODO 
-            //@var change element design if needed
             $("#firstname").val(jsonParse.records.firstname);
             $("#lastname").val(jsonParse.records.lastname);
             $("#username").val(jsonParse.records.username);
             $("#position").val(jsonParse.records.position);
             $("#password").val(jsonParse.records.password);
+            // $("#profile_pic").val(jsonParse.records.profile_pic);
         },
     });
 }
@@ -68,10 +64,9 @@ function goToView(id)
     window.location.href = 'view.html?id=' + id;
 }
 
-//Saving a record
+//!Saving a record
 function store()
 {
-
     let userForm = {
 		firstname : $("#firstname").val(),
         lastname : $("#lastname").val(),
@@ -134,6 +129,7 @@ function update(id)
         position : $("#position").val(),
         password : $("#password").val(),
         confirm_password : $("#confirm_password").val(),
+        // profile_pic : $("#profile_pic").val(),
 	}
 
     $.ajax({
