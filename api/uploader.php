@@ -7,22 +7,18 @@ foreach ($_FILES as $key) {
     $name = $key["name"];
     $path = "../images/$name";
 
-    // if ($key["size"] > 1000000) {
-    //     $hasError = true;
-    // }
-
     @move_uploaded_file($key["tmp_name"], $path);
 }
 
-// if ($hasError)
-// {
-//     $response["code"] = SERVER_ERROR;
-//     $response["description"] = "Max File Reached";
-//     echo json_encode($response);
-//     return;
-// }
+if ($hasError)
+{
+    $response["code"] = SERVER_ERROR;
+    $response["description"] = "Max File Reached";
+    echo json_encode($response);
+    return;
+}
 
-// $username = $_SESSION["loggedin-user"];
+$username = $_SESSION["loggedin-user"];
 
 $sqlCommand = "
     UPDATE users

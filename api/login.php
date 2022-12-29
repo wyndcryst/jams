@@ -10,7 +10,7 @@ if (isset($_POST['auth'])) {
 
     $response = array(
         "code" => INPUT_ERROR,
-        "description" => "Wrong username password"
+        "description" => "Wrong username or password. Please try again."
     );
     
     $sqlCommand = "SELECT * FROM " . TABLE_NAME;
