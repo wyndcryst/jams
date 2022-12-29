@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/x-icon" href="../../images/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="../../images/navbar.png" />
   <title>JAMS | Admin Only - User Details</title>
 </head>
 
@@ -51,17 +51,17 @@
               <div class="col-6">
                 <div class="form-floating mb-3">
                   <input type="text" class="form-control form-control-lg shadow opacity-50" id="firstname"
-                    placeholder="First Name" required readonly />
+                    placeholder="First Name" required readonly/>
                   <label for="firstname">First Name</label>
                 </div>
                 <div class="form-floating mb-3">
                   <input type="text" class="form-control form-control-lg shadow opacity-50" id="lastname"
-                    placeholder="Last Name" required readonly />
+                    placeholder="Last Name" required readonly/>
                   <label for="lastname">Last Name</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="email" class="form-control form-control-lg shadow opacity-50" id="email"
+                  <input type="username" class="form-control form-control-lg shadow opacity-50" id="username"
                     placeholder="Username" required readonly />
                   <label for="email">Username</label>
                 </div>
@@ -72,7 +72,7 @@
                     required />
                   <label for="position">Position</label>
                 </div>
-                <div class="form-floating mb-3">
+                <div class="form-floating mb-4">
                   <input type="password" class="form-control form-control-lg shadow" id="password"
                     placeholder="Password" required />
                   <label for="password">Password</label>
@@ -81,10 +81,21 @@
                   <input type="password" class="form-control form-control-lg shadow" id="confirm_password" placeholder="Confirm Password" required />
                   <label for="confirm_password">Confirm Password</label>
                 </div>
+                
+                <!-- Profile upload start -->
+                <!-- <div class="input-group">
+                    <input type="file" class="form-control shadow" id="file" name="profile_pic">
+                    <label class="input-group-text" for="profile_pic">Change avatar</label>
+                </div> -->
+                <!-- Profile upload end -->
+
+                <!-- <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark" onclick="uploadImage()">Save</button>
+                </div> -->
               </div>
 
               <div class="d-grid gap-2 col-5 mx-auto">
-                <button class="btn btn-primary mb-4 fw-bold" type="submit" value="Save">Update</button>
+                <button class="btn btn-primary mb-4 fw-bold" type="submit" onclick="uploadImage()">Update</button>
               </div>
             </div>
           </form>
@@ -101,10 +112,9 @@
 
   </div>
 
-  <!-- jQuery CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
-    integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- jQuery -->
+  <script src="../../js/jquery-3.6.3.min.js"></script>
+
 
   <!-- Start of Bootstrap scripts -->
   <script src="../../js/bootstrap.bundle.min.js"></script>
@@ -122,6 +132,26 @@
 
     let id = urlParams.get('id');
     show(id);
+
+//     function show(id)
+// {
+//     $.ajax({
+//         url: USERS_API,
+//         type: "POST",
+//         data: "show&id=" + id,
+//         success: function (response) {
+            
+//             let jsonParse = JSON.parse(response)
+
+//             $("#firstname").val(jsonParse.records[0].firstname);
+//             $("#lastname").val(jsonParse.records[0].lastname);
+//             $("#username").val(jsonParse.records[0].username);
+//             $("#position").val(jsonParse.records[0].position);
+//             //$("#password").val(jsonParse.records[0].password);
+//             // $("#profile_pic").val(jsonParse.records.profile_pic);
+//         },
+//     });
+// }
 
     // for onclick events located in opening form element above
     function viewUpdate() {

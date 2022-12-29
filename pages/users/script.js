@@ -26,8 +26,8 @@ function index()
                     // "<td>" + jsonParse.records[i].profile_pic + "</td>" + 
                     "<td>" + jsonParse.records[i].timestamp + "</td>" + 
 
-                    "<td><button onclick='goToView(" +jsonParse.records[i].id+ ")'>EDIT</button>&nbsp;"+
-                    "<button onclick='destroy(" +jsonParse.records[i].id+ ")'>DELETE</button></td>" + 
+                    "<td><button id='editButton' onclick='goToView(" +jsonParse.records[i].id+ ")'>EDIT</button>&nbsp;"+
+                    "<button id='deleteButton' onclick='destroy(" +jsonParse.records[i].id+ ")'>DELETE</button></td>" + 
                 "</tr>";
             }
             
@@ -48,11 +48,11 @@ function show(id)
             
             let jsonParse = JSON.parse(response)
 
-            $("#firstname").val(jsonParse.records.firstname);
-            $("#lastname").val(jsonParse.records.lastname);
-            $("#username").val(jsonParse.records.username);
-            $("#position").val(jsonParse.records.position);
-            $("#password").val(jsonParse.records.password);
+            $("#firstname").val(jsonParse.records[0].firstname);
+            $("#lastname").val(jsonParse.records[0].lastname);
+            $("#username").val(jsonParse.records[0].username);
+            $("#position").val(jsonParse.records[0].position);
+            // $("#password").val(jsonParse.records[0].password);
             // $("#profile_pic").val(jsonParse.records.profile_pic);
         },
     });
@@ -125,7 +125,6 @@ function update(id)
 {
     //@TODO Change json collections
     let userFormUpdate = {
-        username: $("#username").val(),
         position : $("#position").val(),
         password : $("#password").val(),
         confirm_password : $("#confirm_password").val(),
