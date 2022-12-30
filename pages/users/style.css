@@ -6,9 +6,14 @@ body {
 #editButton {
   background-color: green;
   color: white;
+  border-radius: 4px;
+  padding: 0 18px;
+  margin-right: 6px;
 }
 
 #deleteButton {
   background-color: red;
   color: white;
+  border-radius: 4px;
+  margin: 6px 0;
 }

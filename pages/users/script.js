@@ -1,13 +1,15 @@
-
-const USERS_API = "../../api/users.php";
+//! Used USERS_API_ to avoid conflict on imported dashboard script
+//! Imported script from dashboard to use the function getAuthenticatedUser()
+const USERS_API_ = "../../api/users.php";
 // const IMAGE_UPLOADER_API = "../../api/uploader.php";
 
-//Get all information
+
+//! Get all information
 index();
 function index()
 {
     $.ajax({
-        url: USERS_API,
+        url: USERS_API_,
         type: "POST",
         data: "index",
         success: function(response) {
@@ -23,7 +25,7 @@ function index()
                     "<td>" + jsonParse.records[i].username + "</td>" + 
                     "<td>" + jsonParse.records[i].position + "</td>" + 
                     "<td>" + jsonParse.records[i].password + "</td>" + 
-                    // "<td>" + jsonParse.records[i].profile_pic + "</td>" + 
+                    "<td>" + jsonParse.records[i].profile_pic + "</td>" + 
                     "<td>" + jsonParse.records[i].timestamp + "</td>" + 
 
                     "<td><button id='editButton' onclick='goToView(" +jsonParse.records[i].id+ ")'>EDIT</button>&nbsp;"+
@@ -41,7 +43,7 @@ function index()
 function show(id)
 {
     $.ajax({
-        url: USERS_API,
+        url: USERS_API_,
         type: "POST",
         data: "show&id=" + id,
         success: function (response) {
@@ -52,7 +54,6 @@ function show(id)
             $("#lastname").val(jsonParse.records[0].lastname);
             $("#username").val(jsonParse.records[0].username);
             $("#position").val(jsonParse.records[0].position);
-            // $("#password").val(jsonParse.records[0].password);
             // $("#profile_pic").val(jsonParse.records.profile_pic);
         },
     });
@@ -64,7 +65,7 @@ function goToView(id)
     window.location.href = 'view.html?id=' + id;
 }
 
-//!Saving a record
+//! Saving a record
 function store()
 {
     let userForm = {
@@ -78,7 +79,7 @@ function store()
 	}
 
     $.ajax({
-        "url" : USERS_API ,
+        "url" : USERS_API_ ,
         "type" : "POST",
         "data" : "store=" + JSON.stringify(userForm),
         "success" : function(response) {
@@ -96,6 +97,7 @@ function store()
     return false;
 }
 
+//! Delete or destroy a record
 function destroy(id)
 {
 
@@ -105,7 +107,7 @@ function destroy(id)
     }
 
     $.ajax({
-        "url" : USERS_API ,
+        "url" : USERS_API_ ,
         "type" : "POST",
         "data" : "destroy&id=" + id,
         "success" : function(response) {
@@ -121,18 +123,17 @@ function destroy(id)
     })
 }
 
+//! Update a record
 function update(id)
 {
-    //@TODO Change json collections
     let userFormUpdate = {
         position : $("#position").val(),
         password : $("#password").val(),
         confirm_password : $("#confirm_password").val(),
-        // profile_pic : $("#profile_pic").val(),
 	}
 
     $.ajax({
-        "url" : USERS_API ,
+        "url" : USERS_API_ ,
         "type" : "POST",
         "data" : "update=" + JSON.stringify(userFormUpdate) + "&id=" + id,
         "success" : function(response) {
@@ -147,52 +148,3 @@ function update(id)
         }
     })
 }
-
-/** End Actual Functions */
-
-// getProfilePic()
-
-// function getProfilePic()
-// {
-//     $.ajax({
-//         "url" : USERS_API,
-//         "type" : "GET",
-//         "data" : "getProfilePic",
-//         "success" : function(response) {
-//             let responseJSON = JSON.parse(response)
-
-//             $("#profile_pic").attr("src", "../../api/" + responseJSON.records[0].profile_pic);
-
-//             return false;
-//         }
-//     })
-// }
-
-// function uploadImage() 
-// {
-//     // $.blockUI();
-//     let image = new FormData();
-//     image.append("image_file", $("#file")[0].files[0])
-//     image.append("data", "your value");
-
-//      $.ajax({
-//         "url" : IMAGE_UPLOADER_API ,
-//         "type" : "POST",
-//         "data" : image,
-//         "enctype" : "multipart/form-data",
-//         "cache" : false,
-//         "contentType" : false,
-//         "processData" : false,
-//         "success" : function(response) {
-//             // $.unblockUI();
-
-//             let responseJSON = JSON.parse(response)
-
-//             alert(responseJSON.description);
-
-//             // getProfilePic();
-            
-//             return false;
-//         }
-//     })
-// }

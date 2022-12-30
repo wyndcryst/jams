@@ -27,12 +27,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
+                        <a class="nav-link" href="../dashboard/">Dashboard</a>
+                      </li>
+                    <li class="nav-item">
                         <a class="nav-link active" href="../users/">Users</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="../customers/">Customers</a>
-                    </li>
+                    </li> -->
                 </ul>
+                <div>
+                    <h5 class="text-light me-2 my-auto">Hello, <b id="firstNameUsersNav" class="text-info">First Name</b>!</h5>
+                </div>
                 <button class="btn btn-sm btn-outline-light" type="button" onclick="logout()">Logout</button>
             </div>
         </div>
@@ -106,7 +112,7 @@
                     <th>Username</th>
                     <th>Position</th>
                     <th>Password</th>
-                    <!-- <th>Avatar</th> -->
+                    <th>Avatar</th>
                     <th class="text-center">Timestamp</th>
                     <th class="text-center">Action</th>
                 </tr>
@@ -126,5 +132,8 @@
 
 <script src="../../js/logout.js"></script>
 <script src="script.js"></script>
+
+<!--! Utilized dashboard script for fetching first name in navbar, id="firstNameUserNav"-->
+<script src="../dashboard/script.js"></script>
 
 </html>
