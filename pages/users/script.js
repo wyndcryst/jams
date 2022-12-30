@@ -54,7 +54,6 @@ function show(id)
             $("#lastname").val(jsonParse.records[0].lastname);
             $("#username").val(jsonParse.records[0].username);
             $("#position").val(jsonParse.records[0].position);
-            // $("#profile_pic").val(jsonParse.records.profile_pic);
         },
     });
 }
@@ -75,7 +74,6 @@ function store()
         position : $("#position").val(),
         password: $("#password").val(),
         confirm_password : $("#confirm_password").val(),
-        // profile_pic : $("profile_pic").val(),
 	}
 
     $.ajax({

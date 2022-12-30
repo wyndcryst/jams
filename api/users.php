@@ -185,3 +185,27 @@ if (isset($_POST['destroy']))
 
     echo json_encode($response);
  }
+
+
+ if (isset($_GET['getProfilePic']))
+ {
+    $username = $_SESSION['loggedin-user'];
+
+    $sqlCommand = "SELECT * FROM " . TABLE_NAME . " WHERE username = '$username'";
+
+    $results = $connection->query($sqlCommand);
+
+    $response = array();
+
+    $records = array();
+
+    while ($row = $results->fetch_assoc()) {
+        array_push($records, $row);
+    }
+
+    $response["code"] = SUCCESS;
+    $response["total_rows"] = $results->num_rows;
+    $response["records"] = $records;
+
+    echo json_encode($response);
+ }

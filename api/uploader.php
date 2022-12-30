@@ -34,7 +34,7 @@ $response = array();
 if ($isInserted)
 {
     $response["code"] = SUCCESS;
-    $response["description"] = "Successfully profile picture.";
+    $response["description"] = "Successfully updated profile picture.";
 } else
 {
     $response["code"] = SERVER_ERROR;

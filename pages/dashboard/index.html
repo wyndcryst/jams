@@ -16,7 +16,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="../dashboard/">
-                <img src="../../images/navbar.png" alt="Logo" width="25" height="30" class="d-inline-block align-text-top">
+                <img src="../../images/navbar.png" alt="Logo" width="25" height="30"
+                    class="d-inline-block align-text-top">
                 JAMS</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -26,17 +27,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="index.html">Dashboard</a>
-                          </li>
-                        <a class="nav-link" href="../users/">Users</a>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Dashboard</a>
+                    </li>
+                    <a class="nav-link" href="../users/">Users</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="../customers/">Customers</a>
                     </li> -->
                 </ul>
                 <div>
-                    <h5 class="text-light me-2 my-auto">Hello, <b id="firstNameDashboard" class="text-info">First Name</b>!</h5>
+                    <h5 class="text-light me-2 my-auto">Hello, <b id="firstNameDashboard" class="text-info">First
+                            Name</b>!</h5>
                 </div>
                 <button class="btn btn-sm btn-outline-light" type="button" onclick="logout()">Logout</button>
             </div>
@@ -44,15 +46,23 @@
     </nav>
     <!-- Navigation bar ends here -->
 
-    <div class="container text-center mt-5">
+    <div class="container text-center mt-5 mx-auto">
+        <h2>Welcome <b id="firstName" class="text-info">First Name</b>!</h2>
+        <!--TODO Set image upon upload-->
         <img src="../../images/defaultProfile.jpg" alt="Profile" class="img-fluid rounded mb-3" id="profile_pic">
-        <h2>Awesome <b id="firstName" class="text-info">First Name</b>!</h2>
+        <!-- <img src="" width=300px height="300" id="profile_pic"/> -->
+    </div>
+    <div class="container text-center mx-auto">
+        <label>Change your profile picture here:</label>
+        <br />
+        <input type="file" name="file" id="file" />
+        <br /><br>
+        <input type="button" onclick="uploadImage()" value="UPLOAD" />
     </div>
 
 
-
-  <!-- jQuery -->
-  <script src="../../js/jquery-3.6.3.min.js"></script>
+    <!-- jQuery -->
+    <script src="../../js/jquery-3.6.3.min.js"></script>
 
     <!-- Start of Bootstrap scripts -->
     <script src="../../js/bootstrap.bundle.min.js"></script>
