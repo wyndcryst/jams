@@ -1,7 +1,6 @@
 //! Used USERS_API_ to avoid conflict on imported dashboard script
 //! Imported script from dashboard to use the function getAuthenticatedUser()
 const USERS_API_ = "../../api/users.php";
-// const IMAGE_UPLOADER_API = "../../api/uploader.php";
 
 
 //! Get all information
@@ -141,6 +140,36 @@ function update(id)
             alert(responseJSON.description);
 
             index();
+            
+            return false;
+        }
+    })
+}
+
+//!----------------------------------
+//!For profile picture update
+
+function uploadImage() 
+{
+    let image = new FormData();
+    image.append("image_file", $("#file")[0].files[0])
+    image.append("data", "your value");
+
+     $.ajax({
+        "url" : IMAGE_UPLOADER_API ,
+        "type" : "POST",
+        "data" : image,
+        "enctype" : "multipart/form-data",
+        "cache" : false,
+        "contentType" : false,
+        "processData" : false,
+        "success": function (response)
+        {
+            let responseJSON = JSON.parse(response)
+
+            alert(responseJSON.description);
+
+            getProfilePic();
             
             return false;
         }

@@ -30,7 +30,6 @@ function getAuthenticatedUser() {
     })
 }
 
-
 function getProfilePic()
 {
     $.ajax({
@@ -43,33 +42,6 @@ function getProfilePic()
 
             $("#profile_pic").attr("src", "../../api/" + responseJSON.records[0].profile_pic);
 
-            return false;
-        }
-    })
-}
-
-function uploadImage() 
-{
-    let image = new FormData();
-    image.append("image_file", $("#file")[0].files[0])
-    image.append("data", "your value");
-
-     $.ajax({
-        "url" : IMAGE_UPLOADER_API ,
-        "type" : "POST",
-        "data" : image,
-        "enctype" : "multipart/form-data",
-        "cache" : false,
-        "contentType" : false,
-        "processData" : false,
-        "success": function (response)
-        {
-            let responseJSON = JSON.parse(response)
-
-            alert(responseJSON.description);
-
-            getProfilePic();
-            
             return false;
         }
     })
