@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../../css/navbar-global.css">
     <link rel="icon" type="image/x-icon" href="../../images/navbar.png" />
     <title>JAMS | Admin Only - User Details</title>
 </head>
@@ -16,8 +17,7 @@
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="../dashboard/">
-                <img src="../../images/navbar.png" alt="Logo" width="25" height="30"
-                    class="d-inline-block align-text-top">
+                <img src="../../images/navbar.png" alt="Logo" class="d-inline-block align-text-top">
                 JAMS</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -28,7 +28,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="../dashboard/">Dashboard</a>
-                      </li>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="../users/">Users</a>
                     </li>
@@ -37,9 +37,11 @@
                     </li> -->
                 </ul>
 
-                <img src="../../images/person.svg" alt="Profile" class=" border my-auto img-fluid rounded me-2" id="profile_pic" width="30">
+                <img src="../../images/person.svg" alt="Profile" class=" border my-auto img-fluid rounded me-2"
+                    id="profile_pic">
                 <div>
-                    <h5 class="text-light me-2 my-auto">Hello, <b id="firstNameUsersNav" class="text-info">First Name</b>!</h5>
+                    <h5 class="text-light me-2 my-auto">Hello, <b id="firstNameUsersNav" class="text-info">First
+                            Name</b>!</h5>
                 </div>
                 <button class="btn btn-sm btn-outline-light" type="button" onclick="logout()">Logout</button>
             </div>
@@ -50,7 +52,7 @@
     <div class="container">
         <div class="h3 pb-2 my-3 text-danger border-bottom border-danger">
             For Admin only
-          </div>
+        </div>
         <h2 class="card-title text-center mt-4 bg-danger py-2">USERS DETAILS</h2>
         <div class="card mt-1 border-0 bg-transparent" style="background-color: rgb(239, 233, 255)">
             <div class="card-body">
@@ -62,8 +64,8 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control form-control-lg shadow" id="firstname" placeholder="First Name"
-                                        required />
+                                    <input type="text" class="form-control form-control-lg shadow" id="firstname"
+                                        placeholder="First Name" required />
                                     <label for="firstname">First Name</label>
                                 </div>
                                 <div class="form-floating mb-3">
@@ -91,13 +93,13 @@
                                     <label for="password">Password</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="password" class="form-control form-control-lg shadow" id="confirm_password"
-                                        placeholder="Confirm Password" required />
+                                    <input type="password" class="form-control form-control-lg shadow"
+                                        id="confirm_password" placeholder="Confirm Password" required />
                                     <label for="confirm_password">Confirm Password</label>
                                 </div>
                             </div>
 
-                            <div  class="d-grid gap-2 col-5 mx-auto">
+                            <div class="d-grid gap-2 col-5 mx-auto">
                                 <button class="btn btn-primary mb-4 fw-bold" type="submit" value="Save">Save</button>
 
                             </div>
@@ -105,7 +107,7 @@
                     </form>
                 </div>
             </div>
-        </div>            
+        </div>
     </div>
 
     <div class="container-fluid">
@@ -127,18 +129,18 @@
     </div>
 
 
-  <!-- jQuery -->
-  <script src="../../js/jquery-3.6.3.min.js"></script>
+    <!-- jQuery -->
+    <script src="../../js/jquery-3.6.3.min.js"></script>
 
-  <!-- Start of Bootstrap scripts -->
-  <script src="../../js/bootstrap.bundle.min.js"></script>
-  <script src="../../js/bootstrap.min.js"></script>
-  <!-- End of Bootstrap scripts -->
+    <!-- Start of Bootstrap scripts -->
+    <script src="../../js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <!-- End of Bootstrap scripts -->
 
-<script src="../../js/logout.js"></script>
-<script src="script.js"></script>
+    <script src="../../js/logout.js"></script>
+    <script src="script.js"></script>
 
-<!--! Utilized dashboard script for fetching first name in navbar, id="firstNameUserNav"-->
-<script src="../dashboard/script.js"></script>
+    <!--! Utilized dashboard script for fetching first name in navbar, id="firstNameUserNav"-->
+    <script src="../dashboard/script.js"></script>
 
 </html>

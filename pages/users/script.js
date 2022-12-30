@@ -124,6 +124,7 @@ function destroy(id)
 function update(id)
 {
     let userFormUpdate = {
+        username : $("#username").val(),
         position : $("#position").val(),
         password : $("#password").val(),
         confirm_password : $("#confirm_password").val(),

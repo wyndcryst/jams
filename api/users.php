@@ -164,7 +164,8 @@ if (isset($_POST['destroy']))
 
     $sqlCommand = "
     UPDATE " .TABLE_NAME. "
-    SET position = '{$data->position}',
+    SET username = '{$data->username}',
+    position = '{$data->position}',
     password = '{$password}'
     WHERE id = $id
     ";
