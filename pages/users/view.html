@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../../css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="../../css/navbar-global.css">
-  <link rel="icon" type="image/x-icon" href="../../images/navbar.png" />
+  <link rel="icon" type="image/x-icon" href="../../images/icons/navbar.png" />
   <title>JAMS | Admin Only - User Details</title>
 </head>
 
@@ -16,7 +16,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="../dashboard/">
-      <img src="../../images/navbar.png" alt="Logo" class="d-inline-block align-text-top">
+      <img src="../../images/icons/navbar.png" alt="Logo" class="d-inline-block align-text-top">
       JAMS</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,7 @@
           <a class="nav-link active" href="view.html">User Details</a>
         </li>
       </ul>
-      <img src="../../images/person.svg" alt="Profile" class=" border my-auto img-fluid rounded me-2" id="profile_pic">
+      <img src="../../images/icons/person.svg" alt="Profile" class=" border my-auto img-fluid rounded me-2" id="profile_pic">
       <div>
         <h5 class="text-light me-2 my-auto">Hello, <b id="firstNameUsersNav" class="text-info">First Name</b>!</h5>
       </div>
@@ -91,35 +91,21 @@
                   placeholder="Confirm Password" />
                 <label for="confirm_password">Confirm Password</label>
               </div>
-
-              <!-- Profile upload start -->
-              <!-- <div class="input-group">
-                    <input type="file" class="form-control shadow" id="file" name="profile_pic">
-                    <label class="input-group-text" for="profile_pic">Change avatar</label>
-                </div> -->
-              <!-- Profile upload end -->
-
-              <!-- <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-dark" onclick="uploadImage()">Save</button>
-                </div> -->
             </div>
-
 
             <div class="d-grid gap-2 col-5 mx-auto">
               <button class="btn btn-primary mb-4 fw-bold" type="submit">Update</button>
             </div>
 
             <div class="container text-center mt-5 mx-auto">
-              <!-- <h2>Welcome <b id="firstName" class="text-info">First Name</b>!</h2> -->
               <img src="../../images/person.svg" alt="Profile" class="img-fluid rounded mb-3" id="profile_pic">
             </div>
-            <div class="container text-center mx-auto">
-              <label>Change your profile picture here:</label>
-              <br />
-              <input type="file" name="file" id="file" />
-              <br /><br>
-              <input type="button" onclick="uploadImage()" value="UPLOAD" />
+            <div class="container text-center mx-auto d-grid col-3">
+              <label class="input-group-text">Change the Avatar</label>
+              <input type="file" class="form-control shadow my-2" id="file" name="file">
+              <button type="button" class="btn btn-info fw-bold" onclick="uploadImage()">Save</button>
             </div>
+
           </div>
         </form>
       </div>

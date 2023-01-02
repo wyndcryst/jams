@@ -1,3 +1,26 @@
 /*
 todo: create a dark and light theme and the toggle button is on navbar
 */
+
+.w-450 {
+	width: 450px;
+}
+
+.vh-100 {
+	min-height: 100vh;
+}
+
+body {
+    /* font-family: 'Share Tech', sans-serif; */
+    /* font-size: 68px; */
+    /* color: white; */
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    text-shadow: 8px 8px 10px #0000008c;
+    background-color: #343a40;
+    background-image: url("../../images/icons/login-signup-bg.svg"), linear-gradient(to right top, #343a40, #2b2c31, #211f22, #151314, #000000);
+}

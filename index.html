@@ -1,4 +1,5 @@
-!<!DOCTYPE html>
+!
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,47 +9,46 @@
 
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/landing/style.css" />
-  <link rel="icon" type="image/x-icon" href="./images/navbar.png" />
+  <link rel="icon" type="image/x-icon" href="./images/icons/navbar.png" />
+
   <title>Welcome to JAMS</title>
 </head>
 
 <body>
-  <div>
+
+  <div class="container text-center d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+    <div class="card bg-transparent border-0">
+      <div class="card-body">
+        <img src="images/jamsforops.png" alt="logo" class="img-fluid" style="max-width: 50%">
+        <div class="shadow-lg p-3 rounded-3">
+          <div class="display-5 fw-semibold card-title text-warning">
+            Welcome to <br> <strong>Joint Automation of Management System</strong>
+          </div>
+          <p class="font-monospace my-3 fs-3 fw-semibold text-danger">
+            Unifying all MS in one beautiful and user friendly
+            portal.
+          </p>
+        </div>
+        <div class="container mt-5">
+          <div class="row justify-content-center">
+            <div class="col-sm-3">
+              <a href="pages/login/" class=" fs-4 text-decoration-none text-light text-end"><b>Login</b></a>
+            </div>
+            <div class="col-md-3">
+              <a href="pages/signup/" class="fs-4 text-decoration-none"><b>Sign Up</b></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="wave"></div>
     <div class="wave"></div>
     <div class="wave"></div>
   </div>
 
-  <div class="container text-center">
-    <div class="card mt-5 bg-transparent border-0">
-      <div class="card-body py-3">
-        <img src="images/jamsforops.png" alt="logo" class=".img-fluid" style="max-width: 40%">
-        <div class="shadow-lg py-3">
-          <div class="display-5 fw-semibold card-title text-warning">
-            Welcome to <br> <strong>Joint Automation of Management System</strong>
-          </div>
-          <p class="font-monospace mt-3 fs-3 fw-semibold text-danger">
-            Unifying all MS in one beautiful and user friendly
-            portal.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="container mt-5">
-    <div class="row justify-content-center align-items-center">
-        <div class="col-md-5">
-            <a href="pages/login/" class=" fs-4 text-decoration-none px-5"><b>Login</b></a>
-        </div>
-        <div class="col-md-5">
-            <a href="pages/signup/" class= "fs-4 text-decoration-none px-5 "><b>Sign Up</b></a>
-        </div>
-    </div>
-
-
-    <!-- Bootstrap scripts -->
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
+  <!-- Bootstrap scripts -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 
 </body>
 

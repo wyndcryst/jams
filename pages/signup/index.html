@@ -7,80 +7,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/x-icon" href="../../images/navbar.png" />
+    <link rel="icon" type="image/x-icon" href="../../images/icons/navbar.png" />
     <title>JAMS Sign-Up</title>
 </head>
 
 <body>
-    <!-- Navigation bar starts here -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="../../index.html">
-                <img src="../../images/navbar.png" alt="Logo" width="25" height="30" class="d-inline-block align-text-top">
-                JAMS
-            </a>
-        </div>
-    </nav>
-    <!-- Navigation bar ends here -->
+    <!-- Signup form card start -->
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="card shadow-lg border-0">
+            <div class="card-body">
+                <form id="signupForm" onsubmit="return store()" class="w-450 p-3">
+                    <div class="card-body">
+                        <div class="card-title text-center my-3">
+                            <h2>
+                                Welcome to <a class="text-decoration-none" href="../../">JAMS</a>
+                            </h2>
+                            <p>Signing up is quick and easy.</p>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input type="text" class="form-control form-control-lg shadow-sm border-0" id="firstname"
+                                placeholder="First name" required />
+                            <label for="firstname">First Name</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input type="text" class="form-control form-control-lg shadow-sm border-0" id="lastname"
+                                placeholder="Last name" required />
+                            <label for="lastname">Last Name</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input type="email" class="form-control form-control-lg shadow-sm border-0" id="username"
+                                placeholder="name@email.com" required />
+                            <label for="username">Username</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input type="text" class="form-control form-control-lg shadow-sm border-0" id="position"
+                                placeholder="Position" required />
+                            <label for="username">Position</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input type="password" class="form-control form-control-lg shadow-sm border-0" id="password"
+                                placeholder="Password" required />
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control form-control-lg shadow-sm border-0"
+                                id="confirm_password" placeholder="Password" required />
+                            <label for="confirm_password">Confirm Password</label>
+                        </div>
 
-    <div class="container">
-        <div class="card shadow-lg border-0" style="width: 500px; margin: 80px auto">
-            <form id="signupForm" onsubmit="return store()">
-                <div class="card-body">
-                    <h3 class="card-title text-center mb-3">Welcome to JAMS</h3>
-                    <div class="form-floating mb-2">
-                        <input type="text" class="form-control form-control-lg shadow-sm border-0" id="firstname"
-                            placeholder="First name" required />
-                        <label for="firstname">First Name</label>
-                    </div>
-                    <div class="form-floating mb-2">
-                        <input type="text" class="form-control form-control-lg shadow-sm border-0" id="lastname" placeholder="Last name"
-                            required />
-                        <label for="lastname">Last Name</label>
-                    </div>
-                    <div class="form-floating mb-2">
-                        <input type="email" class="form-control form-control-lg shadow-sm border-0" id="username"
-                            placeholder="name@email.com" required />
-                        <label for="username">Username</label>
-                    </div>
-                    <div class="form-floating mb-2">
-                        <input type="text" class="form-control form-control-lg shadow-sm border-0" id="position"
-                            placeholder="Position" required />
-                        <label for="username">Position</label>
-                    </div>
-                    <div class="form-floating mb-2">
-                        <input type="password" class="form-control form-control-lg shadow-sm border-0" id="password"
-                            placeholder="Password" required />
-                        <label for="password">Password</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control form-control-lg shadow-sm border-0" id="confirm_password"
-                            placeholder="Password" required />
-                        <label for="confirm_password">Confirm Password</label>
-                    </div>
+                        <!-- Profile upload start -->
+                        <div class="input-group mb-4">
+                                <input type="file" class="form-control shadow-sm" id="file" name="profile_pic">
+                                <label class="input-group-text" for="profile_pic">Your avatar</label>
+                            </div>
+                        <!-- Profile upload end -->
 
-                    <!-- Profile upload start -->
-                    <!-- <div class="input-group mb-4">
-                        <input type="file" class="form-control shadow-sm" id="file" name="profile_pic">
-                        <label class="input-group-text" for="profile_pic">Upload avatar</label>
-                    </div> -->
-                    <!-- Profile upload end -->
+                        <!-- <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-dark" onclick="uploadImage()">Save</button>
+                            </div> -->
 
-                    <!-- <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-dark" onclick="uploadImage()">Save</button>
-                    </div> -->
-                    
-                    <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-dark">Save</button>
-                    </div>
-                    <div class="text-center mt-3">
-                        <a class="text-decoration-none font-monospace fw-semibold" href="../login/">Already signed up?</a>
-                    </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-dark">Save</button>
+                        </div>
+                        <div class="text-center mt-3">
+                            <!-- <a class="text-decoration-none font-monospace fw-semibold" href="../login/">Already signed up?</a> -->
+                            <p>
+                                Already a member? <a class="text-decoration-none font-monospace fw-semibold"
+                                    href="../login/">Login here.</a>
+                            </p>
+                        </div>
 
-                </div>
-            </form>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
+    <!-- Signup form card ends -->
 
     <!-- jQuery CDN -->
     <script src="../../js/jquery-3.6.3.min.js"></script>

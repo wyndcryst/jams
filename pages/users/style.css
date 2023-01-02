@@ -24,3 +24,10 @@ body {
   font-size: 1rem;
   font-weight: bold;
 }
+
+/* #actionButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto 0;
+} */

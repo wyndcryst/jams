@@ -27,7 +27,7 @@ function index()
                     "<td>" + jsonParse.records[i].profile_pic + "</td>" + 
                     "<td>" + jsonParse.records[i].timestamp + "</td>" + 
 
-                    "<td><button id='editButton' onclick='goToView(" +jsonParse.records[i].id+ ")'>EDIT</button>&nbsp;"+
+                    "<td id='actionButtons'><button id='editButton' onclick='goToView(" +jsonParse.records[i].id+ ")'>EDIT</button>&nbsp;"+
                     "<button id='deleteButton' onclick='destroy(" +jsonParse.records[i].id+ ")'>DELETE</button></td>" + 
                 "</tr>";
             }

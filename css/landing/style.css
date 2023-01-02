@@ -6,6 +6,7 @@ body {
   animation: gradient 15s ease infinite;
   background-size: 400% 400%;
   background-attachment: fixed;
+  text-shadow: 8px 8px 10px #0000008c;
 }
 
 @keyframes gradient {
@@ -69,18 +70,3 @@ body {
     transform: translateX(1);
   }
 }
-
-
-
-/* .card {
-  margin-top: 10.5em;
-  background-color: rgb(223, 240, 255)
-} */
-
-/* .container .card img {
-  max-width: 15%;
-} */
-
-/* .card a {
-  text-decoration: none;
-} */
