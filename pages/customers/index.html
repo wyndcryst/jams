@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../../css/navbar-global.css">
+    <link rel="icon" type="image/x-icon" href="../../images/icons/navbar.png" />
+    <title>JAMS | Customers Database</title>
+</head>
+
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../dashboard/">
+                <img src="../../images/icons/navbar.png" alt="Logo" class="d-inline-block align-text-top">
+                JAMS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../dashboard/">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../users/">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../customers/">Customers</a>
+                    </li>
+                </ul>
+
+                <img src="../../images/icons/person.svg" alt="Profile" class=" border my-auto img-fluid rounded me-2"
+                    id="profile_pic">
+                <div>
+                    <h5 class="text-light me-2 my-auto">Hello, <b id="firstNameUsersNav" class="text-info">First
+                            Name</b>!</h5>
+                </div>
+                <button class="btn btn-sm btn-outline-light" type="button" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+    <!-- Navigation bar ends -->
+
+    <div class="container">
+        <h2 class="card-title text-center mt-4 bg-info py-2">CUSTOMERS DETAILS</h2>
+        <div class="card mt-1 border-0 bg-transparent" style="background-color: rgb(239, 233, 255)">
+            <div class="card-body">
+                <div class="card-subtitle my-1">
+                    <p class="fs-5 fw-semibold shadow py-1 ps-2 text-center">Input new customer:</p>
+
+                    <!-- Start of form -->
+                    <form onsubmit="return store()">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-lg text-uppercase shadow" id="customer"
+                                        placeholder="Customer" required />
+                                    <label for="customer">Customer</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-lg shadow" id="address"
+                                        placeholder="Address" required />
+                                    <label for="address">Address</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-lg text-uppercase shadow" id="circuit_id" placeholder="Circuit ID"
+                                        required />
+                                    <label for="circuit_id">Circuit ID</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-lg text-uppercase shadow" id="work_order"
+                                        placeholder="Work Order" />
+                                    <label for="work_order">Work Order</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control form-control-lg shadow" id="bandwidth" required
+                                        placeholder="Bandwidth" />
+                                    <label for="bandwidth">Bandwidth (Mbps)</label>
+                                </div>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-lg text-uppercase shadow" id="service_type"
+                                        placeholder="Service Type" required />
+                                    <label for="service_type">Service Type</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-lg text-uppercase shadow" id="last_mile_type"
+                                        placeholder="Medium Type" required />
+                                    <label for="last_mile_type">Last Mile Type</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-lg text-uppercase shadow" id="medium_assignments"
+                                        placeholder="Medium(FDU/DP) Assignments" required />
+                                    <label for="medium_assignments">FDU/DP Assignments</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-lg text-uppercase shadow" id="terminating_node_ne_name"
+                                        placeholder="Homing Equipment" required />
+                                    <label for="terminating_node_ne_name">Terminating Node NE Name</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-lg text-uppercase shadow" id="homing_pla_id"
+                                        placeholder="Homing PLA ID" required />
+                                    <label for="homing_pla_id">Homing PLA ID</label>
+                                </div>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-lg text-uppercase shadow" id="homing_site_name"
+                                        placeholder="Homing Site Name" required />
+                                    <label for="homing_site_name">Homing Site Name</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-lg text-uppercase shadow" id="port_assignment"
+                                        placeholder="Port Assignment" required />
+                                    <label for="port_assignment mb-3">Port Assignment</label>
+                                </div>
+                                <!-- Input select start -->
+                                <div class="form-floating mb-3">
+                                    <select class="form-select shadow bg-info fw-semibold" id="town_city" placeholder="Town or City"></select>
+                                    <label for="town_city"> Choose Town / City</label>
+                                </div>
+                                <!-- Input select start -->
+
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-lg text-uppercase shadow" id="province"
+                                        placeholder="Province" required />
+                                    <label for="province">Province</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="text" class="form-control form-control-lg text-uppercase shadow" id="status"
+                                        placeholder="Status" required />
+                                    <label for="status">Status</label>
+                                </div>
+                            </div>
+
+                            <div class="d-grid col-4 mx-auto">
+                                <!-- <button class="btn btn-secondary" value="SAVE" type="submit">Save</button> -->
+                                <button class="btn btn-info mt-2 fw-bold" type="submit" value="Save">Save</button>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="table-responsive">
+            <table class="table table-borderless table-striped table-hover align-middle">
+                <tr class="fs-5">
+                    <th>Customer</th>
+                    <th>Address</th>
+                    <th>Circuit ID</th>
+                    <th>Work Order</th>
+                    <th>Bandwidth (Mbps)</th>
+                    <th>Service Type</th>
+                    <th>Last Mile Type</th>
+                    <th>FDU/DP Assignments</th>
+                    <th>Terminating Node NE Name</th>
+                    <th>Homing PLA ID</th>
+                    <th>Homing Site Name</th>
+                    <th>Port Assignment</th>
+                    <th>Town / City</th>
+                    <th>Province</th>
+                    <th>Status</th>
+                    <th class="text-center">Action</th>
+                </tr>
+                <tbody class="table-group-divider fs-5" id="records"></tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="../../js/jquery-3.6.3.min.js"></script>
+
+    <!-- Start of Bootstrap scripts -->
+    <script src="../../js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <!-- End of Bootstrap scripts -->
+
+    <script src="../../js/logout.js"></script>
+    <script src="script.js"></script>
+
+    <!--! Utilized dashboard script for fetching first name in navbar, id="firstNameUserNav"-->
+    <script src="../dashboard/script.js"></script>
+
+</html>
