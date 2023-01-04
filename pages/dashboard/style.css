@@ -1,7 +1,12 @@
-/*
-todo: create a dark and light theme and the toggle button is on navbar
-*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
 
 .container img {
-    max-width: 15%;   
+    max-width: 15%;
 }
