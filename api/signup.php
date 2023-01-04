@@ -55,7 +55,7 @@ if (isset($_POST['store']))
     if ($isInserted)
     {
         $response["code"] = SUCCESS;
-        $response["description"] = "Successfully signed-in. Please go to Login page or click Already signed up below.";
+        $response["description"] = "Successfully signed-in. Please go to Login page or click \"Login here.\" below.";
     } else 
     {
         $response["code"] = SERVER_ERROR; 
