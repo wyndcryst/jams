@@ -154,7 +154,7 @@ function uploadImage()
 {
     let image = new FormData();
     image.append("image_file", $("#file")[0].files[0])
-    image.append("data", "your value");
+    image.append("data", id);
 
      $.ajax({
         "url" : IMAGE_UPLOADER_API ,

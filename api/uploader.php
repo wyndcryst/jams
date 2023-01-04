@@ -19,12 +19,12 @@ if ($hasError)
     return;
 }
 
-$username = $_SESSION["loggedin-user"];
+$id = $_POST['data'];
 
 $sqlCommand = "
     UPDATE users
     SET `profile_pic` = '$path'
-    WHERE username = '$username'
+    WHERE id = $id
     ";
 
 $isInserted = $connection->query($sqlCommand);
