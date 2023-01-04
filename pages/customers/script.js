@@ -5,6 +5,8 @@ const AREA_LOCATION_API = "../../api/areaLocation.php";
 // Connect with AREA_LOCATION_API
 // This is options for select #town_city
 getTownCity()
+let provinces = []
+let cities = []
 function getTownCity() {
 
     $.ajax({
@@ -17,13 +19,16 @@ function getTownCity() {
             let options = "";
 
             for (var i = 0; i < jsonParse.records.length; i++) {
-                options += "<option value='" + jsonParse.records[i].town_city + "'>" + jsonParse.records[i].town_city + "</option>";
+                
+                options += "<option value='" + jsonParse.records[i].town_city + "' province='" +jsonParse.records[i].province+ "'>" + jsonParse.records[i].town_city + "</option>";
             }
 
             $("#town_city").html(options);
         },
     });
 }
+
+
 
 //! Get all information
 index();
