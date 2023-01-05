@@ -23,6 +23,10 @@ function store()
             let responseJSON = JSON.parse(response)
 
             alert(responseJSON.description);
+
+            if (responseJSON.code == 200) {
+                window.location.href = "../login";
+            }
             
             return false;
         }
