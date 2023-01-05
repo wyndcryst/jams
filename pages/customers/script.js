@@ -19,13 +19,18 @@ function getTownCity() {
             let options = "";
 
             for (var i = 0; i < jsonParse.records.length; i++) {
-                
-                options += "<option value='" + jsonParse.records[i].town_city + "' province='" +jsonParse.records[i].province+ "'>" + jsonParse.records[i].town_city + "</option>";
+                cities[jsonParse.records[i].town_city] = jsonParse.records[i].province;
+                options += "<option value='" + jsonParse.records[i].town_city + "' data='" +jsonParse.records[i].province+ "'>" + jsonParse.records[i].town_city + "</option>";
             }
 
             $("#town_city").html(options);
         },
     });
+}
+
+
+function setProvince() {
+    $("#province").val(cities[$("#town_city").val()]);
 }
 
 
