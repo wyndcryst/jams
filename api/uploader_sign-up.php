@@ -21,27 +21,8 @@ if ($hasError)
     return;
 }
 
-$users = array();
-
-$sqlCommand = "
-    UPDATE users
-    SET `profile_pic` = '$path'
-    WHERE username = '$users'
-    ";
-
-$isInserted = $connection->query($sqlCommand);
-
-$response = array();
-
-if ($isInserted)
-{
-    $response["code"] = SUCCESS;
-    $response["description"] = "Successfully updated profile picture.";
-} else
-{
-    $response["code"] = SERVER_ERROR;
-    $response["description"] = "Error while updating profile picture.";
-}
+$response["code"] = SUCCESS;
+$response["description"] = "Successfully updated profile picture.";
 
 echo json_encode($response);
 
