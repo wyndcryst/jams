@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../../css/page.global.css">
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="../../images/icons/navbar.png" />
+    <!-- DataTables link -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" />
     <title>JAMS | Admin Only - User Details</title>
 </head>
 
@@ -109,7 +111,7 @@
         </div>
     </div>
 
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
         <div class="table-responsive">
             <table class="table table-borderless table-striped table-hover align-middle">
                 <tr>
@@ -125,8 +127,30 @@
                 <tbody class="table-group-divider" id="records"></tbody>
             </table>
         </div>
-    </div>
+    </div> -->
 
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body table-responsive">
+                <table id="records" class="display">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Username</th>
+                            <th>Position</th>
+                            <th>Password</th>
+                            <th>Avatar</th>
+                            <th class="text-center">Timestamp</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
 
     <!-- jQuery -->
     <script src="../../js/jquery-3.6.3.min.js"></script>
@@ -137,10 +161,22 @@
     <!-- End of Bootstrap scripts -->
 
     <script src="../../js/logout.js"></script>
-    <script src="script.js"></script>
 
     <!--! Utilized dashboard script for fetching first name in navbar, id="firstNameUserNav"-->
     <script src="../dashboard/script.js"></script>
+
+    <!-- DataTables script start -->
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    
+    <script src="script.js"></script>
 
 </body>
 

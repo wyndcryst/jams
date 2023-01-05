@@ -2,40 +2,98 @@
 //! Imported script from dashboard to use the function getAuthenticatedUser()
 const USERS_API_ = "../../api/users.php";
 
+let serviceDataTable;
 
 //! Get all information
 index();
 function index()
 {
-    $.ajax({
-        url: USERS_API_,
-        type: "POST",
-        data: "index",
-        success: function(response) {
-            
-            let jsonParse = JSON.parse(response)
-            let tr = '';
+    serviceDataTable = $("#records").DataTable({
+        processing : true,
+        responsive: true,
+        ajax: {
+            url: USERS_API_ + "?index",
+            dataSrc: function (response) {
+                var return_data = new Array();
 
-            for (var i = 0; i<jsonParse.records.length; i++) 
-            {
-                tr += "<tr>" +
-                    "<td>" + jsonParse.records[i].firstname + "</td>" + 
-                    "<td>" + jsonParse.records[i].lastname + "</td>" + 
-                    "<td>" + jsonParse.records[i].username + "</td>" + 
-                    "<td>" + jsonParse.records[i].position + "</td>" + 
-                    "<td>" + jsonParse.records[i].password + "</td>" + 
-                    "<td>" + jsonParse.records[i].profile_pic + "</td>" + 
-                    "<td>" + jsonParse.records[i].timestamp + "</td>" + 
+                for (let i = 0; i<response.records.length; i++) {
 
-                    "<td id='actionButtons'><button id='editButton' onclick='goToView(" +jsonParse.records[i].id+ ")'>EDIT</button>&nbsp;"+
-                    "<button id='deleteButton' onclick='destroy(" +jsonParse.records[i].id+ ")'>DELETE</button></td>" + 
-                "</tr>";
-            }
-            
-            $("#records").html(tr)
-        }
-    })
+                    return_data.push
+                    ({
+                        firstname : response.records[i].firstname,
+                        lastname :  response.records[i].lastname,
+                        username :  response.records[i].username,
+                        position : response.records[i].position,
+                        password : response.records[i].password,
+                        profile_pic : response.records[i].profile_pic,
+                        timestamp : response.records[i].timestamp,
+                        action : "<button id='editButton' onclick='goToView(" +response.records[i].id+ ")'>EDIT</button>&nbsp;"+"<button id='deleteButton' onclick='destroy(" +response.records[i].id+ ")'>DELETE</button>"
+                    });
+
+                }
+                return return_data;
+
+            },
+
+        },
+        columns: [
+        
+            { data : 'firstname' },
+            { data : 'lastname' },
+            { data : 'username' },
+            { data : 'position' },
+            { data : 'password' },
+            { data : 'profile_pic' },
+            { data : 'timestamp' },
+            { data : 'action' },
+        ],
+        
+        dom : 'lBfrtip',
+        buttons : [
+            'print',
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdf'
+        ]
+    }); 
 }
+
+/* 
+* This is without DataTable.
+* note that corresponding API should be changed to $_POST method
+*/
+// function index()
+// {
+//     $.ajax({
+//         url: USERS_API_,
+//         type: "POST",
+//         data: "index",
+//         success: function(response) {
+            
+//             let jsonParse = JSON.parse(response)
+//             let tr = '';
+
+//             for (var i = 0; i<jsonParse.records.length; i++) 
+//             {
+//                 tr += "<tr>" +
+//                     "<td>" + jsonParse.records[i].firstname + "</td>" + 
+//                     "<td>" + jsonParse.records[i].lastname + "</td>" + 
+//                     "<td>" + jsonParse.records[i].username + "</td>" + 
+//                     "<td>" + jsonParse.records[i].position + "</td>" + 
+//                     "<td>" + jsonParse.records[i].password + "</td>" + 
+//                     "<td>" + jsonParse.records[i].profile_pic + "</td>" + 
+//                     "<td>" + jsonParse.records[i].timestamp + "</td>" + 
+
+//                     "<td id='actionButtons'><button id='editButton' onclick='goToView(" +jsonParse.records[i].id+ ")'>EDIT</button>&nbsp;"+
+//                     "<button id='deleteButton' onclick='destroy(" +jsonParse.records[i].id+ ")'>DELETE</button></td>" + 
+//                 "</tr>";
+//             }
+            
+//             $("#records").html(tr)
+//         }
+//     })
+// }
 
 
 //! Redirected to view.html as an UPDATE page

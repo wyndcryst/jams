@@ -9,7 +9,7 @@ define("TABLE_NAME", "users");
 /**
  * This code is for selecting all informations 
  */
-if (isset($_POST['index']))
+if (isset($_GET['index']))
 {
     //@TODO conditions to display all
     $sqlCommand = "SELECT * FROM " . TABLE_NAME;
