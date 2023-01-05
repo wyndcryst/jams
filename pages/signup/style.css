@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
 .w-450 {
   width: 450px;
 }
@@ -19,4 +28,8 @@ body {
   text-shadow: 8px 8px 10px #0000008c;
   background-color: #343a40;
   background-image: url("../../images/icons/login-signup-bg.svg"), linear-gradient(to right top, #343a40, #2b2c31, #211f22, #151314, #000000);
+}
+
+#profile_pic {
+  font-family: "Poppins", sans-serif;
 }

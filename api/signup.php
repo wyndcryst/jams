@@ -63,7 +63,8 @@ if (isset($_POST['store']))
             `lastname`, 
             `username`, 
             `position`, 
-            `password`
+            `password`,
+            `profile_pic`
         ) 
     VALUES 
         (
@@ -71,7 +72,8 @@ if (isset($_POST['store']))
             '{$data->lastname}',
             '{$data->username}',
             '{$data->position}',
-            '{$password}'
+            '{$password}',
+            '{$_SESSION["file-path"]}'
         )
     ";
 

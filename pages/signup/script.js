@@ -1,6 +1,6 @@
 
 const SIGNUP_API = "../../api/signup.php";
-// const IMAGE_UPLOADER_API = "../../api/uploader.php";
+const IMAGE_UPLOADER_API = "../../api/uploader_sign-up.php";
 
 function store()
 {
@@ -11,7 +11,6 @@ function store()
         position : $("#position").val(),
         password: $("#password").val(),
         confirm_password : $("#confirm_password").val(),
-        // profile_pic : $("profile_pic").val(),
 	}
 
     $.ajax({
@@ -33,4 +32,31 @@ function store()
     })
 
     return false;
+}
+
+function uploadImage() 
+{
+    let image = new FormData();
+    image.append("image_file", $("#profile_pic")[0].files[0])
+    // image.append("data", "your value");
+
+     $.ajax({
+        "url" : IMAGE_UPLOADER_API ,
+        "type" : "POST",
+        "data" : image,
+        "enctype" : "multipart/form-data",
+        "cache" : false,
+        "contentType" : false,
+        "processData" : false,
+        "success": function (response)
+        {
+            let responseJSON = JSON.parse(response)
+
+            alert(responseJSON.description);
+
+            // getProfilePic();
+            
+            return false;
+        }
+    })
 }
