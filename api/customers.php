@@ -3,15 +3,13 @@
 include_once("config.php");
 include_once("constants.php");
 
-//@TODO Change table name 
 define("TABLE_NAME", "customers");
 
 /**
- * This code is for selecting all information
+ *! This code is for selecting all information
  */
 if (isset($_POST['index'])) 
 {
-    //@TODO conditions to display all
     $sqlCommand = "SELECT * FROM " . TABLE_NAME;
 
     $results = $connection->query($sqlCommand);
@@ -20,7 +18,8 @@ if (isset($_POST['index']))
 
     $records = array();
 
-    while ($row = $results->fetch_assoc()) {
+    while ($row = $results->fetch_assoc()) 
+    {
         array_push($records, $row);
     }
 
@@ -32,13 +31,12 @@ if (isset($_POST['index']))
 }
 
 /**
- * This code is for selecting one information only
+ *! This code is for selecting one information only
  */
 if (isset($_POST['show'])) 
 {
     $id = $_POST['id'];
 
-    //@TODO conditions to display a specific
     $sqlCommand = "SELECT * FROM " . TABLE_NAME . " WHERE id = $id";
 
     $results = $connection->query($sqlCommand);
@@ -47,7 +45,8 @@ if (isset($_POST['show']))
 
     $records = array();
 
-    while ($row = $results->fetch_assoc()) {
+    while ($row = $results->fetch_assoc()) 
+    {
         array_push($records, $row);
     }
 
@@ -59,7 +58,7 @@ if (isset($_POST['show']))
 }
 
 /**
- * This code is for creating new resource
+ *! This code is for creating new resource
  */
 if (isset($_POST['store'])) 
 {
@@ -108,7 +107,8 @@ if (isset($_POST['store']))
 
     $isInserted = $connection->query($sqlCommand);
 
-    if ($isInserted) {
+    if ($isInserted) 
+    {
         $response["code"] = SUCCESS;
         $response["description"] = "Successfully saved new customer.";
     } else {
@@ -120,9 +120,10 @@ if (isset($_POST['store']))
 }
 
 /**
- *  For Deleting
+ *!  For Deleting
  */
-if (isset($_POST['destroy'])) {
+if (isset($_POST['destroy'])) 
+{
     $id = $_POST['id'];
 
     $sqlCommand = "
@@ -134,7 +135,8 @@ if (isset($_POST['destroy'])) {
 
     $response = array();
 
-    if ($isInserted) {
+    if ($isInserted) 
+    {
         $response["code"] = SUCCESS;
         $response["description"] = "Successfully delete customer";
     } else {
@@ -146,9 +148,10 @@ if (isset($_POST['destroy'])) {
 }
 
 /**
- * For Update
+ *! For Update
  */
-if (isset($_POST['update'])) {
+if (isset($_POST['update'])) 
+{
     $id = $_POST['id'];
     $data = json_decode($_POST['update']);
 
@@ -176,7 +179,8 @@ if (isset($_POST['update'])) {
 
     $response = array();
 
-    if ($isInserted) {
+    if ($isInserted) 
+    {
         $response["code"] = SUCCESS;
         $response["description"] = "Successfully Updated user";
     } else {
@@ -186,3 +190,5 @@ if (isset($_POST['update'])) {
 
     echo json_encode($response);
 }
+
+?>

@@ -5,7 +5,8 @@ include_once ("constants.php");
 
 define("TABLE_NAME", "users");
 
-if (isset($_POST['auth'])) {
+if (isset($_POST['auth'])) 
+{
     $loginCredentials = json_decode($_POST["auth"]);
 
     $response = array(
@@ -19,13 +20,17 @@ if (isset($_POST['auth'])) {
 
     $users = array();
 
-    while ($row = $results->fetch_assoc()) {
+    while ($row = $results->fetch_assoc()) 
+    {
         array_push($users, $row);
     }
 
-    foreach ($users as $user) {
-        if ($user["username"] === $loginCredentials->username) {
-            if (password_verify($loginCredentials->password, $user["password"])) {
+    foreach ($users as $user) 
+    {
+        if ($user["username"] === $loginCredentials->username) 
+        {
+            if (password_verify($loginCredentials->password, $user["password"])) 
+            {
                 $response["code"] = SUCCESS;
                 $response["description"] = "Successfully Login";
 
@@ -36,4 +41,5 @@ if (isset($_POST['auth'])) {
 
     echo json_encode($response);
 }
+
 ?>

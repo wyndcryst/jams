@@ -3,15 +3,13 @@
 include_once ("config.php");
 include_once ("constants.php");
 
-//@TODO Change table name 
 define("TABLE_NAME", "users");
 
 /**
- * This code is for selecting all informations 
+ *! This code is for selecting all information
  */
 if (isset($_GET['index']))
 {
-    //@TODO conditions to display all
     $sqlCommand = "SELECT * FROM " . TABLE_NAME;
 
     $results = $connection->query($sqlCommand);
@@ -32,13 +30,12 @@ if (isset($_GET['index']))
 }
 
 /**
- * This code is for selecting one information only
+ *! This code is for selecting one information only
  */
 if (isset($_POST['show']))
 {
    $id = $_POST['id'];
    
-   //@TODO conditions to display a specific
    $sqlCommand = "SELECT * FROM " . TABLE_NAME . " WHERE id = $id";
 
     $results = $connection->query($sqlCommand);
@@ -47,7 +44,8 @@ if (isset($_POST['show']))
 
     $records = array();
 
-    while ($row = $results->fetch_assoc()) {
+    while ($row = $results->fetch_assoc()) 
+    {
         array_push($records, $row);
     }
 
@@ -59,7 +57,7 @@ if (isset($_POST['show']))
 }
 
 /**
- * This code is for creating new resource
+ *! This code is for creating new resource
  */
 if (isset($_POST['store']))
 {
@@ -78,7 +76,6 @@ if (isset($_POST['store']))
 
     $password = password_hash($data->password, PASSWORD_DEFAULT);
 
-    //TODO : Add profile_pic after password
     $sqlCommand = "
     INSERT INTO " .TABLE_NAME. "
         (
@@ -114,7 +111,7 @@ if (isset($_POST['store']))
 }
 
 /**
- *  For Deleting
+ *!  For Deleting
  */
 if (isset($_POST['destroy']))
 {
@@ -144,7 +141,7 @@ if (isset($_POST['destroy']))
 }
 
 /**
- * For Update
+ *! For Update
  */
  if (isset($_POST['update']))
  {
@@ -200,7 +197,8 @@ if (isset($_POST['destroy']))
 
     $records = array();
 
-    while ($row = $results->fetch_assoc()) {
+    while ($row = $results->fetch_assoc()) 
+    {
         array_push($records, $row);
     }
 
@@ -210,3 +208,5 @@ if (isset($_POST['destroy']))
 
     echo json_encode($response);
  }
+
+ ?>

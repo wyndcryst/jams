@@ -1,11 +1,12 @@
 <?php
+
 include_once ("config.php");
 include_once ("constants.php");
 
 $path = "";
 $hasError = false;
-foreach ($_FILES as $key) {
-
+foreach ($_FILES as $key) 
+{
     $name = $key["name"];
     $path = "../images/$name";
 

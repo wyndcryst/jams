@@ -1,11 +1,14 @@
 <?php
+
 include_once ("config.php");
 include_once("constants.php");
 
-if (isset($_POST['getAuthUser'])) {
+if (isset($_POST['getAuthUser'])) 
+{
     $loggedInUser = @$_SESSION["loggedin-user"];
 
-    $response = array(
+    $response = array
+    (
         "code" => INPUT_ERROR,
         "description" => "Logged In User Not Found",
         "details" => null
@@ -17,12 +20,15 @@ if (isset($_POST['getAuthUser'])) {
 
     $users = array();
 
-    while ($row = $results->fetch_assoc()) {
+    while ($row = $results->fetch_assoc()) 
+    {
         array_push($users, $row);
     }
 
-    foreach($users as $user) {
-        if ($user["username"] === $loggedInUser) {
+    foreach($users as $user) 
+    {
+        if ($user["username"] === $loggedInUser) 
+        {
             $response["code"] = SUCCESS;
             $response["description"] = "Successful";
             $response["details"] = $user;
@@ -31,3 +37,5 @@ if (isset($_POST['getAuthUser'])) {
 
     echo json_encode($response);
 }
+
+?>

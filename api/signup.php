@@ -1,16 +1,12 @@
 <?php
 
-/**
- * This is to load environment
- */
 include_once ("config.php");
 include_once ("constants.php");
 
-//@TODO Change table name 
 define("TABLE_NAME", "users");
 
 /**
- * This code is for creating new resource
+ *! This code is for creating new resource
  */
 if (isset($_POST['store']))
 {
@@ -91,3 +87,5 @@ if (isset($_POST['store']))
 
     echo json_encode($response);
 }
+
+?>
