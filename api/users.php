@@ -74,6 +74,33 @@ if (isset($_POST['store']))
         return;
     }
 
+    if ($data->password == strlen($data->password) < 8) 
+    {
+        $response["code"] = INPUT_ERROR;
+        $response["description"] = "Password must be at least 8 characters.";
+
+        echo json_encode($response);
+        return;
+    }
+
+    if ($data->password == ! preg_match("/[a-z]/i", $data->password)) 
+    {
+        $response["code"] = INPUT_ERROR;
+        $response["description"] = "Password must contain at least one letter.";
+
+        echo json_encode($response);
+        return;
+    }
+
+    if ($data->password == ! preg_match("/[0-9]/i", $data->password)) 
+    {
+        $response["code"] = INPUT_ERROR;
+        $response["description"] = "Password must contain at least one number.";
+
+        echo json_encode($response);
+        return;
+    }
+
     $password = password_hash($data->password, PASSWORD_DEFAULT);
 
     $sqlCommand = "
@@ -174,7 +201,7 @@ if (isset($_POST['destroy']))
     if ($isInserted)
     {
         $response["code"] = SUCCESS;
-        $response["description"] = "Successfully Updated user";
+        $response["description"] = "Successfully updated user";
     } else 
     {
         $response["code"] = SERVER_ERROR; 

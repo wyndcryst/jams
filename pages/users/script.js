@@ -8,55 +8,53 @@ let serviceDataTable;
 index();
 function index()
 {
-    serviceDataTable = $("#records").DataTable({
-        processing : true,
-        responsive: true,
-        ajax: {
-            url: USERS_API_ + "?index",
-            dataSrc: function (response) {
-                var return_data = new Array();
+  // destroy the old table if it exists
+  if (serviceDataTable) {
+    serviceDataTable.destroy();
+  }
 
-                for (let i = 0; i<response.records.length; i++) {
+  // initialize the new table
+  serviceDataTable = $("#records").DataTable({
+    processing : true,
+    responsive: true,
+    ajax: {
+      url: USERS_API_ + "?index",
+      dataSrc: function (response) {
+        var return_data = new Array();
 
-                    return_data.push
-                    ({
-                        firstname : response.records[i].firstname,
-                        lastname :  response.records[i].lastname,
-                        username :  response.records[i].username,
-                        position : response.records[i].position,
-                        password : response.records[i].password,
-                        profile_pic : response.records[i].profile_pic,
-                        timestamp : response.records[i].timestamp,
-                        action : "<button id='editButton' onclick='goToView(" +response.records[i].id+ ")'>EDIT</button>&nbsp;"+"<button id='deleteButton' onclick='destroy(" +response.records[i].id+ ")'>DELETE</button>"
-                    });
+        for (let i = 0; i<response.records.length; i++) {
 
-                }
-                return return_data;
+          return_data.push
+          ({
+            firstname : response.records[i].firstname,
+            lastname :  response.records[i].lastname,
+            username :  response.records[i].username,
+            position : response.records[i].position,
+            password : response.records[i].password,
+            profile_pic : response.records[i].profile_pic,
+            timestamp : response.records[i].timestamp,
+            action : "<button id='editButton' onclick='goToView(" +response.records[i].id+ ")'>EDIT</button>&nbsp;"+"<button id='deleteButton' onclick='destroy(" +response.records[i].id+ ")'>DELETE</button>"
+          });
 
-            },
+        }
+        return return_data;
 
-        },
-        columns: [
-        
-            { data : 'firstname' },
-            { data : 'lastname' },
-            { data : 'username' },
-            { data : 'position' },
-            { data : 'password' },
-            { data : 'profile_pic' },
-            { data : 'timestamp' },
-            { data : 'action' },
-        ],
-        
-        dom : 'lBfrtip',
-        buttons : [
-            'print',
-            'copyHtml5',
-            'excelHtml5',
-            'csvHtml5',
-            'pdf'
-        ]
-    }); 
+      },
+
+    },
+    columns: [
+
+      { data : 'firstname' },
+      { data : 'lastname' },
+      { data : 'username' },
+      { data : 'position' },
+      { data : 'password' },
+      { data : 'profile_pic' },
+      { data : 'timestamp' },
+      { data : 'action' },
+      ],
+      
+  });
 }
 
 /* 
@@ -137,17 +135,28 @@ function store()
         "url" : USERS_API_ ,
         "type" : "POST",
         "data" : "store=" + JSON.stringify(userForm),
-        "success" : function(response) {
+        "success": function (response)
+        {
 
             let responseJSON = JSON.parse(response)
 
             alert(responseJSON.description);
 
             index();
+
+
             
             return false;
         }
     })
+
+    // Clear input fields
+    $("#firstname").val("");
+    $("#lastname").val("");
+    $("#username").val("");
+    $("#position").val("");
+    $("#password").val("");
+    $("#confirm_password").val("");
 
     return false;
 }
