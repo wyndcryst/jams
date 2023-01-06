@@ -139,13 +139,30 @@ function store()
         "url" : CUSTOMERS_API ,
         "type" : "POST",
         "data" : "store=" + JSON.stringify(customerForm),
-        "success" : function(response) {
-
+        "success": function (response)
+        {
             let responseJSON = JSON.parse(response)
 
             alert(responseJSON.description);
 
             index();
+
+            // Clear input fields
+            $("#customer").val("");
+            $("#address").val("");
+            $("#circuit_id").val("");
+            $("#work_order").val("");
+            $("#bandwidth").val("");
+            $("#service_type").val("");
+            $("#last_mile_type").val("");
+            $("#medium_assignments").val("");
+            $("#terminating_node_ne_name").val("");
+            $("#homing_pla_id").val("");
+            $("#homing_site_name").val("");
+            $("#port_assignment").val("");
+            $("#town_city").val("");
+            $("#province").val("");
+            $("#status").val("");
             
             return false;
         }
