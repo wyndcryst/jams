@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="../../css/page.global.css">
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="../../images/icons/navbar.png" />
+    <!-- DataTables link -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.dataTables.min.css" />
+    <!-- DataTables link End -->
     <title>JAMS | Customers Database</title>
 </head>
 
@@ -65,13 +70,13 @@
                                     <label for="customer">Customer</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control shadow" id="address"
-                                        placeholder="Address" required />
+                                    <input type="text" class="form-control shadow" id="address" placeholder="Address"
+                                        required />
                                     <label for="address">Address</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control text-uppercase shadow" id="circuit_id" placeholder="Circuit ID"
-                                        required />
+                                    <input type="text" class="form-control text-uppercase shadow" id="circuit_id"
+                                        placeholder="Circuit ID" required />
                                     <label for="circuit_id">Circuit ID</label>
                                 </div>
                                 <div class="form-floating mb-3">
@@ -98,13 +103,13 @@
                                     <label for="last_mile_type">Last Mile Type</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control text-uppercase shadow" id="medium_assignments"
-                                        placeholder="Medium(FDU/DP) Assignments" required />
+                                    <input type="text" class="form-control text-uppercase shadow"
+                                        id="medium_assignments" placeholder="Medium(FDU/DP) Assignments" required />
                                     <label for="medium_assignments">FDU/DP Assignments</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control text-uppercase shadow" id="terminating_node_ne_name"
-                                        placeholder="Homing Equipment" required />
+                                    <input type="text" class="form-control text-uppercase shadow"
+                                        id="terminating_node_ne_name" placeholder="Homing Equipment" required />
                                     <label for="terminating_node_ne_name">Terminating Node NE Name</label>
                                 </div>
                                 <div class="form-floating mb-3">
@@ -127,7 +132,8 @@
                                 </div>
                                 <!-- Input select start -->
                                 <div class="form-floating mb-3">
-                                    <select class="form-select shadow bg-warning text-primary" id="town_city" placeholder="Town or City" onchange="setProvince()"></select>
+                                    <select class="form-select shadow bg-warning text-primary" id="town_city"
+                                        placeholder="Town or City" onchange="setProvince()"></select>
                                     <label for="town_city"> Choose Town / City</label>
                                 </div>
                                 <!-- Input select start -->
@@ -156,7 +162,7 @@
         </div>
     </div>
 
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
         <div class="table-responsive">
             <table class="table table-borderless table-striped table-hover align-middle">
                 <tr>
@@ -180,8 +186,35 @@
                 <tbody class="table-group-divider" id="records"></tbody>
             </table>
         </div>
-    </div>
+    </div> -->
 
+    <div class="container-fluid">
+        <div class="table-responsive">
+            <table id="records" class="table table-borderless table-striped table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Address</th>
+                        <th>Circuit ID</th>
+                        <th>Work Order</th>
+                        <th>Bandwidth (Mbps)</th>
+                        <th>Service Type</th>
+                        <th>Last Mile Type</th>
+                        <th>FDU/DP Assignments</th>
+                        <th>Terminating Node NE Name</th>
+                        <th>Homing PLA ID</th>
+                        <th>Homing Site Name</th>
+                        <th>Port Assignment</th>
+                        <th>Town / City</th>
+                        <th>Province</th>
+                        <th>Status</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider"></tbody>
+            </table>
+        </div>
+    </div>
 
     <!-- jQuery -->
     <script src="../../js/jquery-3.6.3.min.js"></script>
@@ -192,6 +225,18 @@
     <!-- End of Bootstrap scripts -->
 
     <script src="../../js/logout.js"></script>
+
+    <!-- DataTables script start -->
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+
     <script src="script.js"></script>
 
     <!--! Utilized dashboard script for fetching first name in navbar, id="firstNameUserNav"-->

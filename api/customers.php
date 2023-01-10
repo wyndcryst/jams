@@ -8,7 +8,7 @@ define("TABLE_NAME", "customers");
 /**
  *! This code is for selecting all information
  */
-if (isset($_POST['index'])) 
+if (isset($_GET['index'])) 
 {
     $sqlCommand = "SELECT * FROM " . TABLE_NAME;
 
@@ -190,5 +190,3 @@ if (isset($_POST['update']))
 
     echo json_encode($response);
 }
-
-?>

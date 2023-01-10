@@ -28,3 +28,7 @@ body {
   font-size: 1rem;
   font-weight: bold;
 }
+
+.container-fluid .dt-buttons {
+  margin-left: 5px;
+}
